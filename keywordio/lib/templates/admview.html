@@ -1,0 +1,55 @@
+<!--Project Library Management System-->
+<!--SANOJ KUMAR PRADHAN-->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+  <nav id="navbar-example2" class="navbar bg-info px-3 mb-3">
+  <a class="navbar-brand" href="#"><b>Library Management System</b></a>
+    <div class="d-grid gap-2 d-md-block">
+      <button class="btn btn-success" type="button" onclick="location.href='/addbutton'" name='Add a book'>Add a book</button>
+      <button class="btn btn-success" type="button" onclick="location.href='/logout'" name='Add a book'>logout</button>
+
+    </div>
+
+</nav>
+  <table class="table table-info table-striped-columns">
+    <h1 style="text-align:center" >Book List</h1>
+  <thead>
+    <tr>
+      <th scope="col">BookID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Publisher</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in bk %}
+    <tr>
+      <td>{{i.BID}}</td>
+      <td>{{i.NAME}}</td>
+      <td>{{i.AUTHOR}}</td>
+      <td>{{i.PUBLISHER}}</td>
+      <td>
+        <div class="btn-group gap-4">
+          <form method="post" action="/updatebutton?id={{i.BID}}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-outline-success" >Update</button>
+          </form>
+          <form method="post" action="/deletebook?={{i.BID}}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+            </form>
+                </div></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

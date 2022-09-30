@@ -1,0 +1,43 @@
+<!--Project Library Management System-->
+<!--SANOJ KUMAR PRADHAN-->
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+  <body>
+  <nav id="navbar-example2" class="navbar bg-info px-3 mb-3">
+  <a class="navbar-brand" href="#"><b>Library Management System</b></a>
+
+</nav>
+  <h1 style="text-align:center" >Book List</h1>
+  <table class="table align-middle table-warning table-striped-columns table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col">BookID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Publication</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in bk %}
+    <tr>
+      <td>{{i.BID}}</td>
+      <td>{{i.NAME}}</td>
+      <td>{{i.AUTHOR}}</td>
+      <td>{{i.PUBLISHER}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  </body>
+</html>

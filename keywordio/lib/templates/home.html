@@ -1,0 +1,43 @@
+<!--Project Library Management System-->
+<!--SANOJ KUMAR PRADHAN-->
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock title %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+
+  <body>
+  {% csrf_token %}
+    <nav id="navbar-example2" class="navbar bg-warning px-3 mb-3">
+  <a class="navbar-brand" href="/login"><b>Library Management System</b></a>
+
+      <div class="d-grid gap-2 d-md-block">
+        <button class="btn btn-success" type="button" onclick="location.href='/stuview'" name='Student view'>Student view</button>
+        <button class="btn btn-dark" type="button" onclick="location.href='/signup'" name='Admin sign up'>Admin sign up</button>
+      </div>
+</nav>
+
+
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} fade show my-0" role="alert">
+  {{ message }}
+    </div>
+    {% endfor %}
+     {% endif %}
+
+{% block userinfo %}
+
+    {% endblock %}
+
+  </body>
+</html>
+
+
